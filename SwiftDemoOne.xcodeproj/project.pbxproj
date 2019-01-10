@@ -10,10 +10,16 @@
 		1756EE7E21E71974005EE332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EE7D21E71974005EE332 /* AppDelegate.swift */; };
 		1756EE8021E71974005EE332 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EE7F21E71974005EE332 /* ViewController.swift */; };
 		1756EE8321E71974005EE332 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1756EE8121E71974005EE332 /* Main.storyboard */; };
-		1756EE8521E71974005EE332 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1756EE8421E71974005EE332 /* Assets.xcassets */; };
 		1756EE8821E71974005EE332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1756EE8621E71974005EE332 /* LaunchScreen.storyboard */; };
 		1756EE9321E71974005EE332 /* SwiftDemoOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EE9221E71974005EE332 /* SwiftDemoOneTests.swift */; };
 		1756EE9E21E71974005EE332 /* SwiftDemoOneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EE9D21E71974005EE332 /* SwiftDemoOneUITests.swift */; };
+		1756EEAC21E71A15005EE332 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEAB21E71A15005EE332 /* RootTabBarViewController.swift */; };
+		1756EEAE21E71AAF005EE332 /* Color_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEAD21E71AAF005EE332 /* Color_extension.swift */; };
+		1756EEB021E71C72005EE332 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEAF21E71C72005EE332 /* FoodViewController.swift */; };
+		1756EEB221E71CD8005EE332 /* FoodViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEB121E71CD8005EE332 /* FoodViewMode.swift */; };
+		1756EEBC21E7204B005EE332 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1756EEBB21E7204B005EE332 /* Assets.xcassets */; };
+		1756EEBE21E72FCB005EE332 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEBD21E72FCB005EE332 /* DetailViewController.swift */; };
+		1756EEC021E74FC8005EE332 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEBF21E74FC8005EE332 /* GroupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +44,6 @@
 		1756EE7D21E71974005EE332 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1756EE7F21E71974005EE332 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1756EE8221E71974005EE332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1756EE8421E71974005EE332 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1756EE8721E71974005EE332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1756EE8921E71974005EE332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1756EE8E21E71974005EE332 /* SwiftDemoOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDemoOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +52,13 @@
 		1756EE9921E71974005EE332 /* SwiftDemoOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDemoOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1756EE9D21E71974005EE332 /* SwiftDemoOneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDemoOneUITests.swift; sourceTree = "<group>"; };
 		1756EE9F21E71974005EE332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1756EEAB21E71A15005EE332 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
+		1756EEAD21E71AAF005EE332 /* Color_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color_extension.swift; sourceTree = "<group>"; };
+		1756EEAF21E71C72005EE332 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		1756EEB121E71CD8005EE332 /* FoodViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewMode.swift; sourceTree = "<group>"; };
+		1756EEBB21E7204B005EE332 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1756EEBD21E72FCB005EE332 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		1756EEBF21E74FC8005EE332 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +109,18 @@
 		1756EE7C21E71974005EE332 /* SwiftDemoOne */ = {
 			isa = PBXGroup;
 			children = (
+				1756EEBB21E7204B005EE332 /* Assets.xcassets */,
 				1756EE7D21E71974005EE332 /* AppDelegate.swift */,
 				1756EE7F21E71974005EE332 /* ViewController.swift */,
 				1756EE8121E71974005EE332 /* Main.storyboard */,
-				1756EE8421E71974005EE332 /* Assets.xcassets */,
 				1756EE8621E71974005EE332 /* LaunchScreen.storyboard */,
 				1756EE8921E71974005EE332 /* Info.plist */,
+				1756EEAB21E71A15005EE332 /* RootTabBarViewController.swift */,
+				1756EEAD21E71AAF005EE332 /* Color_extension.swift */,
+				1756EEAF21E71C72005EE332 /* FoodViewController.swift */,
+				1756EEB121E71CD8005EE332 /* FoodViewMode.swift */,
+				1756EEBD21E72FCB005EE332 /* DetailViewController.swift */,
+				1756EEBF21E74FC8005EE332 /* GroupViewController.swift */,
 			);
 			path = SwiftDemoOne;
 			sourceTree = "<group>";
@@ -233,7 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1756EE8821E71974005EE332 /* LaunchScreen.storyboard in Resources */,
-				1756EE8521E71974005EE332 /* Assets.xcassets in Resources */,
+				1756EEBC21E7204B005EE332 /* Assets.xcassets in Resources */,
 				1756EE8321E71974005EE332 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,8 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1756EEC021E74FC8005EE332 /* GroupViewController.swift in Sources */,
 				1756EE8021E71974005EE332 /* ViewController.swift in Sources */,
+				1756EEB021E71C72005EE332 /* FoodViewController.swift in Sources */,
+				1756EEAC21E71A15005EE332 /* RootTabBarViewController.swift in Sources */,
+				1756EEB221E71CD8005EE332 /* FoodViewMode.swift in Sources */,
 				1756EE7E21E71974005EE332 /* AppDelegate.swift in Sources */,
+				1756EEAE21E71AAF005EE332 /* Color_extension.swift in Sources */,
+				1756EEBE21E72FCB005EE332 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DPY9J9LVFZ;
 				INFOPLIST_FILE = SwiftDemoOne/Info.plist;
@@ -441,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DPY9J9LVFZ;
 				INFOPLIST_FILE = SwiftDemoOne/Info.plist;
