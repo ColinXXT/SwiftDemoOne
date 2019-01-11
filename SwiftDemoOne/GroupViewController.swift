@@ -24,12 +24,15 @@ class GroupViewController: UIViewController , UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         //初始化数据
-        self.allnames =  [
-            0:[String](["汉堡包","蛋糕"]),
-            1:[String](["绿茶","咖啡"])
+        self.allnames = [
+            0:[String] ([
+                "蛋糕",
+                "汉堡包"]),
+            1:[String]([
+                "咖啡",
+                "绿茶"])
         ]
     
-        
         self.adHeaders = ["精品食物","畅销冷饮"]
         
         //创建表视图
@@ -47,6 +50,33 @@ class GroupViewController: UIViewController , UITableViewDelegate, UITableViewDa
     }
 
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //为了提供表格显示性能，已创建完成的单元需重复使用
+        let identify:String = "SwiftCell"
+        let secno = indexPath.section
+        var data = self.allnames?[secno]
+        if (secno == 0) {
+            //同一形式的单元格重复使用，在声明时已注册
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: identify, for: indexPath as IndexPath) as UITableViewCell
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            let image = UIImage(named: "Icon-60")
+            cell.imageView?.image = image
+            cell.imageView?.layer.cornerRadius = 25
+            cell.imageView?.layer.masksToBounds = true
+            cell.textLabel?.text = data?[indexPath.row]
+            return cell
+        } else {
+            //第二个分组表格使用详细标签
+            let adCell = UITableViewCell(style: .subtitle, reuseIdentifier: "SwiftCell")
+            adCell.accessoryType = UITableViewCellAccessoryType.detailButton
+            adCell.textLabel?.text = data?[indexPath.row]
+            adCell.detailTextLabel?.text = "这是\(data![indexPath.row])的说明"
+            return adCell
+        }
+    }
+
+    
     //返回表格行数（也就是返回控件数）
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let data = self.allnames?[section]
@@ -58,30 +88,9 @@ class GroupViewController: UIViewController , UITableViewDelegate, UITableViewDa
     func tableView(_ tableView:UITableView, titleForHeaderInSection section:Int)->String?{
 
         var headers = self.adHeaders!
-        print(section)
         return headers[section]
     }
     
-    
-    //创建各单元显示内容(创建参数indexPath指定的单元）
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell
-    {
-        //为了提供表格显示性能，已创建完成的单元需重复使用
-        let identify:String = "SwiftCell"
-        //同一形式的单元格重复使用，在声明时已注册
-        let cell = tableView.dequeueReusableCell(withIdentifier: identify, for: indexPath)
-            as UITableViewCell
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-        
-        let secno = indexPath.section
-
-        var data = self.allnames?[secno]
-
-        cell.textLabel?.text = data![indexPath.row]
-        
-        return cell
-    }
     
 
     
@@ -89,5 +98,13 @@ class GroupViewController: UIViewController , UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         
         // Dispose of any resources that can be recreated.
+    }
+
+    //Date to String
+    func dateFromString(dateStr:String) -> NSDate?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: dateStr)
+        return (date! as NSDate)
     }
 }

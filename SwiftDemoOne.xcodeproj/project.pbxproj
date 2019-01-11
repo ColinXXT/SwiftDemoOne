@@ -20,6 +20,8 @@
 		1756EEBC21E7204B005EE332 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1756EEBB21E7204B005EE332 /* Assets.xcassets */; };
 		1756EEBE21E72FCB005EE332 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEBD21E72FCB005EE332 /* DetailViewController.swift */; };
 		1756EEC021E74FC8005EE332 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEBF21E74FC8005EE332 /* GroupViewController.swift */; };
+		1756EEC221E87D9D005EE332 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEC121E87D9D005EE332 /* LoginViewController.swift */; };
+		1756EEC421E886AD005EE332 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEC321E886AD005EE332 /* MessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		1756EEBB21E7204B005EE332 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1756EEBD21E72FCB005EE332 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1756EEBF21E74FC8005EE332 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		1756EEC121E87D9D005EE332 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1756EEC321E886AD005EE332 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 				1756EEB121E71CD8005EE332 /* FoodViewMode.swift */,
 				1756EEBD21E72FCB005EE332 /* DetailViewController.swift */,
 				1756EEBF21E74FC8005EE332 /* GroupViewController.swift */,
+				1756EEC121E87D9D005EE332 /* LoginViewController.swift */,
+				1756EEC321E886AD005EE332 /* MessageViewController.swift */,
 			);
 			path = SwiftDemoOne;
 			sourceTree = "<group>";
@@ -277,9 +283,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1756EEC221E87D9D005EE332 /* LoginViewController.swift in Sources */,
 				1756EEC021E74FC8005EE332 /* GroupViewController.swift in Sources */,
 				1756EE8021E71974005EE332 /* ViewController.swift in Sources */,
 				1756EEB021E71C72005EE332 /* FoodViewController.swift in Sources */,
+				1756EEC421E886AD005EE332 /* MessageViewController.swift in Sources */,
 				1756EEAC21E71A15005EE332 /* RootTabBarViewController.swift in Sources */,
 				1756EEB221E71CD8005EE332 /* FoodViewMode.swift in Sources */,
 				1756EE7E21E71974005EE332 /* AppDelegate.swift in Sources */,

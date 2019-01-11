@@ -26,8 +26,8 @@ class FoodViewController: UIViewController , UITableViewDataSource, UITableViewD
       
         editItm.tintColor = UIColor.black
         
-        navigationItem.leftBarButtonItem = editItm
-        navigationItem.rightBarButtonItem = addItem
+        navigationItem.rightBarButtonItem = editItm
+       // navigationItem.rightBarButtonItem = addItem
         
         
         tableView = UITableView(frame:CGRect(x:0,y:0,width:self.view.frame.size.width,height:self.view.frame.size.height), style:UITableViewStyle.plain)
@@ -122,12 +122,16 @@ class FoodViewController: UIViewController , UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
         //跳转到新页面
-        let collection = DetailViewController()
         let tableViews = dataSource[indexPath.row] as FoodViewMode
+        //拿到storyBoard
+        let collection = DetailViewController()
+
         collection.title = tableViews.title
+ 
         navigationController?.pushViewController(collection, animated: true)
         
     }
+    
     
     //添加按钮
     @objc func addBtnClick(sender:UIButton) {

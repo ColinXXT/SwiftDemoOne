@@ -52,11 +52,11 @@ class RootTabBarViewController: UITabBarController, RootTabBarDelegate {
             case 0:
                 vc = FoodViewController()
             case 1:
-                vc = UIViewController()
+                vc = MessageViewController()
             case 2:
                 vc = GroupViewController()
             case 3:
-                vc = UIViewController()
+                vc = LoginViewController()
             default:
                 break
             }
