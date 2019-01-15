@@ -21,10 +21,12 @@ class FoodViewController: UIViewController , UITableViewDataSource, UITableViewD
                       FoodViewMode(id: "4", images: "green_tea", title: "咖啡", date: dateFromString(dateStr: "2018-11-14")!)]
     
         //导航栏 back & 编辑 按钮
-        let addItem = UIBarButtonItem.init(title: "➕", style: UIBarButtonItemStyle.plain, target: self, action: #selector(addBtnClick))
-        let editItm = UIBarButtonItem.init(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(editBtnClick))
-      
-        editItm.tintColor = UIColor.black
+        //let addItem = UIBarButtonItem.init(title: "➕", style: UIBarButtonItemStyle.plain, target: self, action: #selector(addBtnClick))
+        //let editItm = UIBarButtonItem.init(title: "编辑", style: .plain, target: self, action: #selector(editBtnClick))
+        let editItm = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(editBtnClick))
+        //editItm.tintColor = UIColor.colorWithHexString("DAA520")
+
+        
         
         navigationItem.rightBarButtonItem = editItm
        // navigationItem.rightBarButtonItem = addItem
@@ -60,8 +62,7 @@ class FoodViewController: UIViewController , UITableViewDataSource, UITableViewD
         if (cell == nil) {
             cell = UITableViewCell.init(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellId)
         }
-        cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator//添加箭头
-        cell?.selectionStyle = UITableViewCellSelectionStyle.none
+        
         
         let tableViews = dataSource[indexPath.row] as FoodViewMode
         cell?.textLabel?.text = tableViews.title
@@ -122,24 +123,28 @@ class FoodViewController: UIViewController , UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
         //跳转到新页面
-        let tableViews = dataSource[indexPath.row] as FoodViewMode
-        //拿到storyBoard
-        let collection = DetailViewController()
-
-        collection.title = tableViews.title
- 
-        navigationController?.pushViewController(collection, animated: true)
+//        let tableViews = dataSource[indexPath.row] as FoodViewMode
+//        let collection = DetailViewController()
+//        let dataStr = self.dataSource[indexPath.row]
+        //国际化
+        let dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd", options: 0, locale: NSLocale.current)
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        
+//        collection.title = tableViews.title
+//        collection.dateDetails = dateFormatter.string(from: dataStr.date as Date)
+//        collection.imageDetails = dataStr.images
+//
+//
+//        navigationController?.pushViewController(collection, animated: true)
+//
     }
     
     
     //添加按钮
     @objc func addBtnClick(sender:UIButton) {
         //添加一个在最前面
-        
-        //        dataSource.insert(arc4random_uniform(100), at: 0)
-        
-  
         
         let index = IndexPath.init(row: 0, section: 0)
         

@@ -50,11 +50,11 @@ class RootTabBarViewController: UITabBarController, RootTabBarDelegate {
             //创建根控制器
             switch i {
             case 0:
-                vc = FoodViewController()
+                vc = DetailViewController()
             case 1:
                 vc = MessageViewController()
             case 2:
-                vc = GroupViewController()
+                vc = FoodViewController()
             case 3:
                 vc = LoginViewController()
             default:
@@ -71,6 +71,7 @@ class RootTabBarViewController: UITabBarController, RootTabBarDelegate {
             barItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("cccccc")], for: .normal)
             barItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("21d1c1")], for: .selected)
             
+     
             
             
             //设置标题

@@ -104,7 +104,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         //提交按钮
         submitButton = UIButton.init(type: UIButtonType.custom)
-        submitButton.frame = CGRect.init(x: 0, y: 200, width: mainSize.width - 30, height: 50)
+        submitButton.frame = CGRect.init(x: 15, y: vLogin.frame.origin.y + 200, width: mainSize.width - 30, height: 50)
         submitButton.setTitle("登录", for: .normal)
         submitButton.setTitleColor(UIColor.white, for: .normal)
         //字体
@@ -117,7 +117,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         submitButton.layer.backgroundColor = UIColor.colorWithHexString("21d1c1").cgColor
         submitButton.layer.borderWidth = 1.5
         submitButton.addTarget(self, action: #selector(loginBtbClick), for: .touchUpInside)
-        vLogin.addSubview(submitButton)
+        self.view.addSubview(submitButton)
+        
     }
     
     //输入框获取焦点开始编辑
@@ -125,6 +126,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     {
         //如果当前是用户名输入
         if textField.isEqual(txtUser){
+
             if (showType != LoginShowType.PASS)
             {
                 showType = LoginShowType.USER
@@ -165,20 +167,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    @objc func loginBtbClick(button:UIButton ){
-        button.isSelected = !button.isSelected
-        if button.isSelected {
-            button.setTitle("Selected", for: .normal)
-        }else{
-            button.setTitle("NoSelected", for: .normal)
-        }
-    }
-}
 
+    
+
+    @objc func loginBtbClick(button: UIButton){
+        let userName:NSString = (txtUser?.text as NSString?)!
+        let passWord:NSString = (txtPwd?.text as NSString?)!
+        let alertView:UIAlertController = UIAlertController(title: "账号密码不能为空", message: nil, preferredStyle: .alert)
+        if userName.isEqual(to: "") || passWord.isEqual(to: ""){
+            self.present(alertView, animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self.presentedViewController?.dismiss(animated: false, completion: nil)
+            }
+        }
+        else{
+            //self.navigationController?.pushViewController(FoodViewController(), animated: false)
+           self.tabBarController?.selectedIndex = 0
+        }
+        
+    }
+
+    
+    
 //登录框状态枚举
-enum LoginShowType {
-    case NONE
-    case USER
-    case PASS
+    enum LoginShowType {
+        case NONE
+        case USER
+        case PASS
+    }
 }

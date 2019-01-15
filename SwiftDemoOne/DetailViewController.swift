@@ -8,68 +8,167 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-   
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellId = "detailsViewCell"
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
-        if (cell == nil) {
-            cell = UITableViewCell.init(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellId)
-        }
-        cell?.tintColor = UIColor.red
-        cell?.imageView?.image = UIImage.init(named: "Icon_add")
-        cell?.textLabel?.text = "Test"
-        cell?.imageView?.layer.cornerRadius = 25
-        cell?.imageView?.layer.masksToBounds = true
-        cell?.detailTextLabel?.text = "Test details"
-        return cell!
-    }
-    
 
+class DetailViewController: UIViewController {
+    //左侧表格
+    lazy var leftTableView: UITableView = {
+        let leftTableView = UITableView()
+        leftTableView.delegate = self
+        leftTableView.dataSource = self
+        leftTableView.frame = CGRect.init(x: 0, y: 0, width: 80, height: UIScreen.main.bounds.size.height - 124 )
+        leftTableView.rowHeight = 55
+        leftTableView.showsVerticalScrollIndicator = false
+        leftTableView.separatorColor = UIColor.clear
+        leftTableView.register(LeftTableViewCell.self, forCellReuseIdentifier: "leftTableViewCell")
+        return leftTableView
+    }()
+    //右侧表格
+    lazy var rightTableView : UITableView = {
+        let rightTableView = UITableView()
+        rightTableView.delegate = self
+        rightTableView.dataSource = self
+        rightTableView.frame = CGRect(x: 80, y: 64,
+                                      width: UIScreen.main.bounds.width - 80,
+                                      height: UIScreen.main.bounds.height - 180)
+        rightTableView.rowHeight = 80
+        rightTableView.showsVerticalScrollIndicator = false
+        rightTableView.register(RightTableViewCell.self,
+                                forCellReuseIdentifier: "rightTableViewCell")
+        return rightTableView
+    }()
+    //左侧表格数据
+    var leftTableData = [String]()
+    //右侧表格数据
+    var rightTableData = [[RightTableModel]]()
+    //右侧表格当前是否正在向下滚动（即true表示手指向上滚动，查看下面内容）
+    var rightTableIsScrollDown = true
+    //右侧表格垂直偏移量
+    var rightTableLastOffSetY: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        var tableView: UITableView = UITableView()
         
-        //导航栏 back & 编辑 按钮
-        let backItm = UIBarButtonItem.init(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backBtnClick))
-        let editItm = UIBarButtonItem.init(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(editBtnClick))
+        self.title = "美食广场"
+        //初始化左侧表格数据
+        for i in 1..<15{
+            self.leftTableData.append("分类\(i)")
+        }
         
-        backItm.tintColor = UIColor.black
-        editItm.tintColor = UIColor.black
+        //初始化右侧表格数据
+        for leftItem in leftTableData{
+            var models = [RightTableModel]()
+            for i in 1..<7 {
+                models.append(RightTableModel.init(name: "\(leftItem) - 外卖菜品\(i)", picture: "green_tea", price: Float(i)))
+            }
+            self.rightTableData.append(models)
+        }
         
-        navigationItem.leftBarButtonItem = backItm
-        navigationItem.rightBarButtonItem = editItm
+        //将表格添加到页面上
+        self.view.addSubview(leftTableView)
+        self.view.addSubview(rightTableView)
         
-        tableView = UITableView(frame:CGRect(x:0,y:0,width:self.view.frame.size.width,height:self.view.frame.size.height), style:UITableViewStyle.plain)
+        //左侧表格默认选中第一项
+        leftTableView.selectRow(at: IndexPath.init(row: 0, section: 0), animated: true, scrollPosition: UITableViewScrollPosition.none)
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        
-        self.view.addSubview(tableView)
-   
     }
+}
+//继承
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    //表格分区
+    func numberOfSections(in tableView: UITableView) -> Int {
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        if leftTableView == tableView{
+            return 1
+        } else {
+            return leftTableData.count
+        }
     }
     
+    //分区下单元表格数量
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if leftTableView == tableView{
+            return leftTableData.count
+        } else {
+            return rightTableData[section].count
+        }
+    }
+    
+    //返回自定义单元格
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if leftTableView == tableView{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "leftTableViewCell") as! LeftTableViewCell
+            cell.titleLabel.text = leftTableData[indexPath.row]
+            return cell
+        } else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "rightTableViewCell") as! RightTableViewCell
+            let model = rightTableData[indexPath.section][indexPath.row]
+            cell.setData(model)
+            return cell
+        }
+    }
+    //分区头高度（只有右侧表格有分区头）
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if leftTableView == tableView{
+            return 0
+        }
+        return 30
+    }
+    //返回自定义分区头（只有右侧表格有分区头）
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if leftTableView == tableView{
+            return nil
+        }
+        let headerView = RightTableViewHeader(frame: CGRect(x: 0, y: 0,width: UIScreen.main.bounds.width, height: 30))
+        headerView.titleLabel.text = leftTableData[section]
+        return headerView
+    }
+    //分区头即将要显示时调用
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView,
+                   forSection section: Int) {
+        //如果是右侧表格，且是是由用户手动滑动屏幕造成的向上滚动
+        //那么左侧表格自动选中该分区对应的分类
+        if (rightTableView == tableView) && !rightTableIsScrollDown && (rightTableView.isDragging || rightTableView.isDecelerating) {
+            leftTableView.selectRow(at: IndexPath(row: section, section: 0),
+                                    animated: true, scrollPosition: .top)
+        }
+    }
+    
+    //分区头即将要消失时调用
+    func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView,
+                   forSection section: Int) {
+        //如果是右侧表格，且是是由用户手动滑动屏幕造成的向下滚动
+        //那么左侧表格自动选中该分区对应的下一个分区的分类
+        if (rightTableView == tableView)
+            && rightTableIsScrollDown
+            && (rightTableView.isDragging || rightTableView.isDecelerating) {
+            leftTableView.selectRow(at: IndexPath(row: section + 1, section: 0),
+                                    animated: true, scrollPosition: .top)
+        }
+    }
+    
+    //单元格选中时调用
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //点击的是左侧单元格时
+        if leftTableView == tableView {
+            //右侧表格自动滚动到对应的分区
+            rightTableView.scrollToRow(at: IndexPath(row: 0, section: indexPath.row),
+                                       at: .top, animated: true)
+            //左侧表格将该单元格滚动到顶部
+            leftTableView.scrollToRow(at: IndexPath(row: indexPath.row, section: 0),
+                                      at: .top, animated: true)
+        }
+    }
+    
+    //表格滚动时触发（主要用于记录当前右侧表格时向上还是向下滚动）
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let tableView = scrollView as! UITableView
+        
+        if rightTableView == tableView {
 
- 
-    //添加按钮
-    @objc func backBtnClick(sender:UIButton) {
-        navigationController?.popToRootViewController(animated: true)
-    }
-    
-    //编辑按钮
-    @objc func editBtnClick() {
-    
+            rightTableIsScrollDown = rightTableLastOffSetY < scrollView.contentOffset.y
+            rightTableLastOffSetY = scrollView.contentOffset.y
+        }
     }
 }

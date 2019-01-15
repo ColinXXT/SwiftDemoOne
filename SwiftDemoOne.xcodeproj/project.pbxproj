@@ -22,6 +22,10 @@
 		1756EEC021E74FC8005EE332 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEBF21E74FC8005EE332 /* GroupViewController.swift */; };
 		1756EEC221E87D9D005EE332 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEC121E87D9D005EE332 /* LoginViewController.swift */; };
 		1756EEC421E886AD005EE332 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EEC321E886AD005EE332 /* MessageViewController.swift */; };
+		17FA400621EDB98E00A4102F /* LeftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA400521EDB98E00A4102F /* LeftTableViewCell.swift */; };
+		17FA400821EDBA1500A4102F /* RightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA400721EDBA1500A4102F /* RightTableViewCell.swift */; };
+		17FA400A21EDBAB200A4102F /* RightTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA400921EDBAB200A4102F /* RightTableModel.swift */; };
+		17FA400C21EDC8C400A4102F /* RightTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA400B21EDC8C400A4102F /* RightTableViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		1756EEBF21E74FC8005EE332 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		1756EEC121E87D9D005EE332 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1756EEC321E886AD005EE332 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		17FA400521EDB98E00A4102F /* LeftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftTableViewCell.swift; sourceTree = "<group>"; };
+		17FA400721EDBA1500A4102F /* RightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightTableViewCell.swift; sourceTree = "<group>"; };
+		17FA400921EDBAB200A4102F /* RightTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightTableModel.swift; sourceTree = "<group>"; };
+		17FA400B21EDC8C400A4102F /* RightTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightTableViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +135,10 @@
 				1756EEBF21E74FC8005EE332 /* GroupViewController.swift */,
 				1756EEC121E87D9D005EE332 /* LoginViewController.swift */,
 				1756EEC321E886AD005EE332 /* MessageViewController.swift */,
+				17FA400521EDB98E00A4102F /* LeftTableViewCell.swift */,
+				17FA400721EDBA1500A4102F /* RightTableViewCell.swift */,
+				17FA400921EDBAB200A4102F /* RightTableModel.swift */,
+				17FA400B21EDC8C400A4102F /* RightTableViewHeader.swift */,
 			);
 			path = SwiftDemoOne;
 			sourceTree = "<group>";
@@ -284,15 +296,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				1756EEC221E87D9D005EE332 /* LoginViewController.swift in Sources */,
+				17FA400621EDB98E00A4102F /* LeftTableViewCell.swift in Sources */,
 				1756EEC021E74FC8005EE332 /* GroupViewController.swift in Sources */,
 				1756EE8021E71974005EE332 /* ViewController.swift in Sources */,
 				1756EEB021E71C72005EE332 /* FoodViewController.swift in Sources */,
 				1756EEC421E886AD005EE332 /* MessageViewController.swift in Sources */,
 				1756EEAC21E71A15005EE332 /* RootTabBarViewController.swift in Sources */,
 				1756EEB221E71CD8005EE332 /* FoodViewMode.swift in Sources */,
+				17FA400821EDBA1500A4102F /* RightTableViewCell.swift in Sources */,
 				1756EE7E21E71974005EE332 /* AppDelegate.swift in Sources */,
 				1756EEAE21E71AAF005EE332 /* Color_extension.swift in Sources */,
 				1756EEBE21E72FCB005EE332 /* DetailViewController.swift in Sources */,
+				17FA400A21EDBAB200A4102F /* RightTableModel.swift in Sources */,
+				17FA400C21EDC8C400A4102F /* RightTableViewHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
