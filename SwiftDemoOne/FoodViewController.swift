@@ -62,20 +62,19 @@ class FoodViewController: UIViewController , UITableViewDataSource, UITableViewD
         if (cell == nil) {
             cell = UITableViewCell.init(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellId)
         }
-        
-        
+
         let tableViews = dataSource[indexPath.row] as FoodViewMode
         cell?.textLabel?.text = tableViews.title
         cell?.imageView?.image = UIImage.init(named: tableViews.images)
         cell?.imageView?.layer.cornerRadius = 25
         cell?.imageView?.layer.masksToBounds = true
         
+        cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        
         //国际化
         let dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd", options: 0, locale: NSLocale.current)
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
-        
         cell?.detailTextLabel?.text = "生产日期："+dateFormatter.string(from: tableViews.date as Date)
         return cell!
     }
@@ -123,31 +122,17 @@ class FoodViewController: UIViewController , UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
         //跳转到新页面
-//        let tableViews = dataSource[indexPath.row] as FoodViewMode
-//        let collection = DetailViewController()
-//        let dataStr = self.dataSource[indexPath.row]
-        //国际化
-        let dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd", options: 0, locale: NSLocale.current)
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = dateFormat
-        
-//        collection.title = tableViews.title
-//        collection.dateDetails = dateFormatter.string(from: dataStr.date as Date)
-//        collection.imageDetails = dataStr.images
-//
-//
-//        navigationController?.pushViewController(collection, animated: true)
-//
+        let collection = DetailViewController()
+        collection.title = self.dataSource[indexPath.row].title
+        navigationController?.pushViewController(collection, animated: true)
+
     }
     
     
     //添加按钮
     @objc func addBtnClick(sender:UIButton) {
         //添加一个在最前面
-        
         let index = IndexPath.init(row: 0, section: 0)
-        
         self.tableView.insertRows(at: [index], with: UITableViewRowAnimation.fade)
     }
     
@@ -155,7 +140,7 @@ class FoodViewController: UIViewController , UITableViewDataSource, UITableViewD
     @objc func editBtnClick() {
         if self.tableView.isEditing == false {
             self.tableView.setEditing(true, animated: true)
-        }else{
+        } else {
             self.tableView.setEditing(false, animated: true)
         }
     }

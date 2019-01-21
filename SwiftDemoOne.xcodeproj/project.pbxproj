@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1722B7D721F17A7F008D6933 /* GroupViewDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1722B7D621F17A7F008D6933 /* GroupViewDetailsController.swift */; };
+		1722B7D921F17CB4008D6933 /* GroupViewDetailsStaticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1722B7D821F17CB4008D6933 /* GroupViewDetailsStaticController.swift */; };
+		1722B7DF21F5BCF0008D6933 /* MineCellLoginPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1722B7DE21F5BCF0008D6933 /* MineCellLoginPanelController.swift */; };
 		1756EE7E21E71974005EE332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EE7D21E71974005EE332 /* AppDelegate.swift */; };
 		1756EE8021E71974005EE332 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756EE7F21E71974005EE332 /* ViewController.swift */; };
 		1756EE8321E71974005EE332 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1756EE8121E71974005EE332 /* Main.storyboard */; };
@@ -26,6 +29,13 @@
 		17FA400821EDBA1500A4102F /* RightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA400721EDBA1500A4102F /* RightTableViewCell.swift */; };
 		17FA400A21EDBAB200A4102F /* RightTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA400921EDBAB200A4102F /* RightTableModel.swift */; };
 		17FA400C21EDC8C400A4102F /* RightTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA400B21EDC8C400A4102F /* RightTableViewHeader.swift */; };
+		17FA400E21F019E500A4102F /* imageData.json in Resources */ = {isa = PBXBuildFile; fileRef = 17FA400D21F019E500A4102F /* imageData.json */; };
+		17FA401621F01C7400A4102F /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17FA401221F01C7300A4102F /* 1.jpg */; };
+		17FA401721F01C7400A4102F /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17FA401321F01C7300A4102F /* 3.jpg */; };
+		17FA401821F01C7400A4102F /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17FA401421F01C7300A4102F /* 2.jpg */; };
+		17FA401921F01C7400A4102F /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17FA401521F01C7400A4102F /* 4.jpg */; };
+		17FA401B21F05AF500A4102F /* MessageShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA401A21F05AF500A4102F /* MessageShowView.swift */; };
+		17FA401D21F068DA00A4102F /* MessageShowBtnImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA401C21F068DA00A4102F /* MessageShowBtnImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1722B7D621F17A7F008D6933 /* GroupViewDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewDetailsController.swift; sourceTree = "<group>"; };
+		1722B7D821F17CB4008D6933 /* GroupViewDetailsStaticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewDetailsStaticController.swift; sourceTree = "<group>"; };
+		1722B7DE21F5BCF0008D6933 /* MineCellLoginPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCellLoginPanelController.swift; sourceTree = "<group>"; };
 		1756EE7A21E71974005EE332 /* SwiftDemoOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemoOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1756EE7D21E71974005EE332 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1756EE7F21E71974005EE332 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +84,13 @@
 		17FA400721EDBA1500A4102F /* RightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightTableViewCell.swift; sourceTree = "<group>"; };
 		17FA400921EDBAB200A4102F /* RightTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightTableModel.swift; sourceTree = "<group>"; };
 		17FA400B21EDC8C400A4102F /* RightTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightTableViewHeader.swift; sourceTree = "<group>"; };
+		17FA400D21F019E500A4102F /* imageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = imageData.json; path = ../../imageData.json; sourceTree = "<group>"; };
+		17FA401221F01C7300A4102F /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		17FA401321F01C7300A4102F /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		17FA401421F01C7300A4102F /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		17FA401521F01C7400A4102F /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		17FA401A21F05AF500A4102F /* MessageShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageShowView.swift; sourceTree = "<group>"; };
+		17FA401C21F068DA00A4102F /* MessageShowBtnImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageShowBtnImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +141,8 @@
 		1756EE7C21E71974005EE332 /* SwiftDemoOne */ = {
 			isa = PBXGroup;
 			children = (
+				17FA400F21F01A2100A4102F /* image */,
+				17FA400D21F019E500A4102F /* imageData.json */,
 				1756EEBB21E7204B005EE332 /* Assets.xcassets */,
 				1756EE7D21E71974005EE332 /* AppDelegate.swift */,
 				1756EE7F21E71974005EE332 /* ViewController.swift */,
@@ -139,6 +161,11 @@
 				17FA400721EDBA1500A4102F /* RightTableViewCell.swift */,
 				17FA400921EDBAB200A4102F /* RightTableModel.swift */,
 				17FA400B21EDC8C400A4102F /* RightTableViewHeader.swift */,
+				17FA401A21F05AF500A4102F /* MessageShowView.swift */,
+				17FA401C21F068DA00A4102F /* MessageShowBtnImage.swift */,
+				1722B7D621F17A7F008D6933 /* GroupViewDetailsController.swift */,
+				1722B7D821F17CB4008D6933 /* GroupViewDetailsStaticController.swift */,
+				1722B7DE21F5BCF0008D6933 /* MineCellLoginPanelController.swift */,
 			);
 			path = SwiftDemoOne;
 			sourceTree = "<group>";
@@ -159,6 +186,17 @@
 				1756EE9F21E71974005EE332 /* Info.plist */,
 			);
 			path = SwiftDemoOneUITests;
+			sourceTree = "<group>";
+		};
+		17FA400F21F01A2100A4102F /* image */ = {
+			isa = PBXGroup;
+			children = (
+				17FA401221F01C7300A4102F /* 1.jpg */,
+				17FA401421F01C7300A4102F /* 2.jpg */,
+				17FA401321F01C7300A4102F /* 3.jpg */,
+				17FA401521F01C7400A4102F /* 4.jpg */,
+			);
+			path = image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +308,12 @@
 			files = (
 				1756EE8821E71974005EE332 /* LaunchScreen.storyboard in Resources */,
 				1756EEBC21E7204B005EE332 /* Assets.xcassets in Resources */,
+				17FA401621F01C7400A4102F /* 1.jpg in Resources */,
 				1756EE8321E71974005EE332 /* Main.storyboard in Resources */,
+				17FA401721F01C7400A4102F /* 3.jpg in Resources */,
+				17FA401921F01C7400A4102F /* 4.jpg in Resources */,
+				17FA401821F01C7400A4102F /* 2.jpg in Resources */,
+				17FA400E21F019E500A4102F /* imageData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,17 +339,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				1756EEC221E87D9D005EE332 /* LoginViewController.swift in Sources */,
+				17FA401D21F068DA00A4102F /* MessageShowBtnImage.swift in Sources */,
 				17FA400621EDB98E00A4102F /* LeftTableViewCell.swift in Sources */,
 				1756EEC021E74FC8005EE332 /* GroupViewController.swift in Sources */,
 				1756EE8021E71974005EE332 /* ViewController.swift in Sources */,
+				1722B7D921F17CB4008D6933 /* GroupViewDetailsStaticController.swift in Sources */,
 				1756EEB021E71C72005EE332 /* FoodViewController.swift in Sources */,
 				1756EEC421E886AD005EE332 /* MessageViewController.swift in Sources */,
 				1756EEAC21E71A15005EE332 /* RootTabBarViewController.swift in Sources */,
 				1756EEB221E71CD8005EE332 /* FoodViewMode.swift in Sources */,
+				1722B7D721F17A7F008D6933 /* GroupViewDetailsController.swift in Sources */,
 				17FA400821EDBA1500A4102F /* RightTableViewCell.swift in Sources */,
 				1756EE7E21E71974005EE332 /* AppDelegate.swift in Sources */,
 				1756EEAE21E71AAF005EE332 /* Color_extension.swift in Sources */,
 				1756EEBE21E72FCB005EE332 /* DetailViewController.swift in Sources */,
+				17FA401B21F05AF500A4102F /* MessageShowView.swift in Sources */,
+				1722B7DF21F5BCF0008D6933 /* MineCellLoginPanelController.swift in Sources */,
 				17FA400A21EDBAB200A4102F /* RightTableModel.swift in Sources */,
 				17FA400C21EDC8C400A4102F /* RightTableViewHeader.swift in Sources */,
 			);

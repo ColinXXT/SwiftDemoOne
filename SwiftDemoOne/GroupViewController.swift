@@ -77,6 +77,24 @@ class GroupViewController: UIViewController , UITableViewDelegate, UITableViewDa
     }
 
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView?.deselectRow(at: indexPath, animated: true)
+        //跳转到新页面
+        let secno = indexPath.section
+        let data = self.allnames?[secno]
+        if (secno == 0) {
+            let collection = GroupViewDetailsController()
+            collection.title = data![indexPath.row]
+            navigationController?.pushViewController(collection, animated: true)
+     
+        } else {
+            let collection = GroupViewDetailsStaticController()
+            collection.title = data![indexPath.row]
+
+            self.present(collection, animated: true, completion: nil)
+        }
+        
+    }
     //返回表格行数（也就是返回控件数）
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let data = self.allnames?[section]

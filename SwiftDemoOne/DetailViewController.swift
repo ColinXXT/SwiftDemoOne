@@ -27,13 +27,10 @@ class DetailViewController: UIViewController {
         let rightTableView = UITableView()
         rightTableView.delegate = self
         rightTableView.dataSource = self
-        rightTableView.frame = CGRect(x: 80, y: 64,
-                                      width: UIScreen.main.bounds.width - 80,
-                                      height: UIScreen.main.bounds.height - 180)
+        rightTableView.frame = CGRect(x: 80, y: 64, width: UIScreen.main.bounds.width - 80, height: UIScreen.main.bounds.height - 180)
         rightTableView.rowHeight = 80
         rightTableView.showsVerticalScrollIndicator = false
-        rightTableView.register(RightTableViewCell.self,
-                                forCellReuseIdentifier: "rightTableViewCell")
+        rightTableView.register(RightTableViewCell.self, forCellReuseIdentifier: "rightTableViewCell")
         return rightTableView
     }()
     //左侧表格数据
@@ -48,7 +45,10 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "美食广场"
+        let backItem = UIBarButtonItem.init(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backBtnClick))
+        navigationItem.leftBarButtonItem = backItem
+        
+        self.title = "美食"
         //初始化左侧表格数据
         for i in 1..<15{
             self.leftTableData.append("分类\(i)")
@@ -125,13 +125,11 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource{
         return headerView
     }
     //分区头即将要显示时调用
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView,
-                   forSection section: Int) {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         //如果是右侧表格，且是是由用户手动滑动屏幕造成的向上滚动
         //那么左侧表格自动选中该分区对应的分类
         if (rightTableView == tableView) && !rightTableIsScrollDown && (rightTableView.isDragging || rightTableView.isDecelerating) {
-            leftTableView.selectRow(at: IndexPath(row: section, section: 0),
-                                    animated: true, scrollPosition: .top)
+            leftTableView.selectRow(at: IndexPath(row: section, section: 0), animated: true, scrollPosition: .top)
         }
     }
     
@@ -140,11 +138,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource{
                    forSection section: Int) {
         //如果是右侧表格，且是是由用户手动滑动屏幕造成的向下滚动
         //那么左侧表格自动选中该分区对应的下一个分区的分类
-        if (rightTableView == tableView)
-            && rightTableIsScrollDown
-            && (rightTableView.isDragging || rightTableView.isDecelerating) {
-            leftTableView.selectRow(at: IndexPath(row: section + 1, section: 0),
-                                    animated: true, scrollPosition: .top)
+        if (rightTableView == tableView) && rightTableIsScrollDown && (rightTableView.isDragging || rightTableView.isDecelerating) {
+            leftTableView.selectRow(at: IndexPath(row: section + 1, section: 0), animated: true, scrollPosition: .top)
         }
     }
     
@@ -153,22 +148,22 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource{
         //点击的是左侧单元格时
         if leftTableView == tableView {
             //右侧表格自动滚动到对应的分区
-            rightTableView.scrollToRow(at: IndexPath(row: 0, section: indexPath.row),
-                                       at: .top, animated: true)
+            rightTableView.scrollToRow(at: IndexPath(row: 0, section: indexPath.row), at: .top, animated: true)
             //左侧表格将该单元格滚动到顶部
-            leftTableView.scrollToRow(at: IndexPath(row: indexPath.row, section: 0),
-                                      at: .top, animated: true)
+            leftTableView.scrollToRow(at: IndexPath(row: indexPath.row, section: 0), at: .top, animated: true)
         }
     }
     
     //表格滚动时触发（主要用于记录当前右侧表格时向上还是向下滚动）
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let tableView = scrollView as! UITableView
-        
         if rightTableView == tableView {
-
             rightTableIsScrollDown = rightTableLastOffSetY < scrollView.contentOffset.y
             rightTableLastOffSetY = scrollView.contentOffset.y
         }
+    }
+    
+    @objc func backBtnClick(){
+        navigationController?.popViewController(animated: true)
     }
 }

@@ -50,11 +50,11 @@ class RootTabBarViewController: UITabBarController, RootTabBarDelegate {
             //创建根控制器
             switch i {
             case 0:
-                vc = DetailViewController()
+                vc = FoodViewController()
             case 1:
                 vc = MessageViewController()
             case 2:
-                vc = FoodViewController()
+                vc = GroupViewController()
             case 3:
                 vc = LoginViewController()
             default:
