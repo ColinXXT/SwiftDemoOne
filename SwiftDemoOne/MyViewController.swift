@@ -8,12 +8,14 @@
 
 import UIKit
 
-class MyViewController: UIViewController {
+class MyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     struct GroceryProduct{
         var imageName: String
         var title: String
     }
+    
+    var userImage: UIImage = UIImage(named: "v2_my_avatar")!
     
     lazy var bodyTableView: UITableView = {
         let bodyTableView = UITableView()
@@ -35,8 +37,6 @@ class MyViewController: UIViewController {
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: 160))
         headerView.backgroundColor = UIColor.colorWithHexString("F0E68C")
         
-        
-        let userImage = UIImage(named: "v2_my_avatar")
         let settingImage = UIImage.init(named: "v2_my_settings_icon")
         
         
@@ -46,9 +46,10 @@ class MyViewController: UIViewController {
         userBtn.frame.size = CGSize(width: 50, height: 50)
         settingBtn.frame.size = CGSize.init(width: 50, height: 50)
         //设置按钮文字
+
+        userBtn.addTarget(self, action: #selector(userClick), for: .touchUpInside)
         userBtn.setImage(userImage, for: .normal)
         settingBtn.setImage(settingImage, for: .normal)
-        settingBtn.isEnabled = false
         
         userBtn.center = CGPoint.init(x: headerView.bounds.width / 2, y: headerView.bounds.size.height / 2)
         settingBtn.frame.origin.x = self.view.bounds.width - settingBtn.bounds.width
@@ -87,6 +88,10 @@ class MyViewController: UIViewController {
         let line2 = UIView.init(frame: CGRect.init(x: subItem * 2 - 0.5, y: 160 + (50 * 0.2), width: 1, height: 50 * 0.6))
         line2.backgroundColor = UIColor.gray
         line2.alpha = 0.3
+        
+        
+        
+        
         headerView.addSubview(userBtn)
         headerView.addSubview(settingBtn)
         headerView.addSubview(phoneNum)
@@ -102,10 +107,44 @@ class MyViewController: UIViewController {
         self.view.addSubview(bodyTableView)
         
     }
-   
+    @objc func userClick(){
+
+        let sexActionSheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        weak var weakSelf = self
+        let sexNanAction = UIAlertAction(title: "从相册中选择", style: UIAlertActionStyle.default){ (action:UIAlertAction)in
+            
+            weakSelf?.initPhotoPicker()
+            //填写需要的响应方法
+     
+        }
+        
+        let sexNvAction = UIAlertAction(title: "拍照", style: UIAlertActionStyle.default){ (action:UIAlertAction)in
+            
+            weakSelf?.initCameraPicker()
+            //填写需要的响应方法
+          
+        }
+        
+        
+        let sexSaceAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel){ (action:UIAlertAction)in
+            //填写需要的响应方法
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        
+        sexActionSheet.addAction(sexNanAction)
+        sexActionSheet.addAction(sexNvAction)
+        sexActionSheet.addAction(sexSaceAction)
+        
+        self.present(sexActionSheet, animated: true, completion: nil)
+    }
+    
+    
     @objc func settingClick(){
         print("Setting Click")
     }
+    
     
     class MineUpImageDownText: UIButton {
         
@@ -120,6 +159,51 @@ class MyViewController: UIViewController {
         
         required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
+        }
+    }
+    
+    func initPhotoPicker(){
+        let photoPicker = UIImagePickerController()
+        photoPicker.delegate = self
+        photoPicker.allowsEditing = true
+        photoPicker.sourceType = .photoLibrary
+        //在需要的地方present出来
+        self.present(photoPicker, animated: true, completion: nil)
+    }
+    
+    func initCameraPicker(){
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.delegate = self
+            cameraPicker.allowsEditing = true
+            cameraPicker.sourceType = .camera
+            
+            self.present(cameraPicker, animated: true, completion: nil)
+        }
+        else{
+            print("不支持拍照")
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
+        //获得照片
+        let image:UIImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        //拍照
+        if picker.sourceType == .camera{
+            //保存相册
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
+        }
+        self.userImage = image
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    @objc func image(image:UIImage,didFinishSavingWithError error:NSError?,contextInfo:AnyObject) {
+        if error != nil {
+            print("保存失败")
+        } else {
+            print("保存成功")
         }
     }
 }

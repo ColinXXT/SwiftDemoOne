@@ -37,14 +37,44 @@ class RootTabBarViewController: UITabBarController, RootTabBarDelegate {
     
     /// 上传按钮执行方法
     func addClick() {
+        let sexActionSheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        print("add succeed")
+        weak var weakSelf = self
+        
+        let sexNanAction = UIAlertAction(title: "从相册中选择", style: UIAlertActionStyle.default){ (action:UIAlertAction)in
+            
+            //weakSelf?.initPhotoPicker()
+            //填写需要的响应方法
+            
+        }
+        
+        let sexNvAction = UIAlertAction(title: "拍照", style: UIAlertActionStyle.default){ (action:UIAlertAction)in
+            
+            
+            //weakSelf?.initCameraPicker()
+            //填写需要的响应方法
+            
+        }
+        
+        
+        let sexSaceAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel){ (action:UIAlertAction)in
+            
+            //填写需要的响应方法
+            
+        }
+        
+        
+        sexActionSheet.addAction(sexNanAction)
+        sexActionSheet.addAction(sexNvAction)
+        sexActionSheet.addAction(sexSaceAction)
+        
+        self.present(sexActionSheet, animated: true, completion: nil)
     }
     
     func setRootTabbarConntroller(){
         
         var vc : UIViewController?
-        
+  
         for i in 0..<self.tabBarNormalImages.count {
             
             //创建根控制器
@@ -147,6 +177,7 @@ class RootTabBar: UITabBar {
             
             if barButton.isKind(of: NSClassFromString("UITabBarButton")!){
                 
+      
                 if index == 2{
                     /// 设置添加按钮位置
                     addButton.frame.size = CGSize.init(width: (addButton.currentBackgroundImage?.size.width)!, height: (addButton.currentBackgroundImage?.size.height)!)
