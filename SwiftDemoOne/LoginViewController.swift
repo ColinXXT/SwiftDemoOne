@@ -181,8 +181,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
         }
         else{
-            //self.navigationController?.pushViewController(FoodViewController(), animated: false)
-           self.tabBarController?.selectedIndex = 0
+            self.navigationController?.pushViewController(MyViewController(), animated: true)
         }
         
     }
