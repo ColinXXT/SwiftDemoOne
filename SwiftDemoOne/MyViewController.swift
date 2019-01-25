@@ -16,6 +16,8 @@ class MyViewController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     
     var userImage: UIImage = UIImage(named: "v2_my_avatar")!
+    var userBtn : UIButton = UIButton(type:.custom)
+    
     
     lazy var bodyTableView: UITableView = {
         let bodyTableView = UITableView()
@@ -40,7 +42,7 @@ class MyViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         let settingImage = UIImage.init(named: "v2_my_settings_icon")
         
         
-        let userBtn:UIButton = UIButton(type:.custom)
+ 
         let settingBtn : UIButton = UIButton.init(type: .custom)
         //设置按钮大小
         userBtn.frame.size = CGSize(width: 50, height: 50)
@@ -116,7 +118,7 @@ class MyViewController: UIViewController, UIImagePickerControllerDelegate, UINav
             
             weakSelf?.initPhotoPicker()
             //填写需要的响应方法
-     
+            super.viewDidLoad()
         }
         
         let sexNvAction = UIAlertAction(title: "拍照", style: UIAlertActionStyle.default){ (action:UIAlertAction)in
@@ -195,7 +197,10 @@ class MyViewController: UIViewController, UIImagePickerControllerDelegate, UINav
             //保存相册
             UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
         }
+
+        userBtn.setImage(image, for: .normal)
         self.userImage = image
+        
         
         self.dismiss(animated: true, completion: nil)
     }
